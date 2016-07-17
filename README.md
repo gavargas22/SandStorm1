@@ -7,3 +7,5 @@ To do list for the SandStorm 1 device
 - [ ] Writing CSV file with at timestamp, location, altitude.
 
 - [ ] Wireless transmission of low resolution image.
+
+- [ ] Create Commander application on Windows
