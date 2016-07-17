@@ -1,0 +1,18 @@
+﻿<Window x:Class="SandStorm1_Commander.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SandStorm1_Commander"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Label x:Name="label" Content="SandStorm Commander" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="251" FontFamily="Open Sans" FontWeight="Bold" TextOptions.TextFormattingMode="Display" FontSize="20"/>
+        <Label x:Name="comPortOut" Content="Label" HorizontalAlignment="Left" Height="61" Margin="38,235,0,0" VerticalAlignment="Top" Width="404"/>
+        <Label x:Name="label1" Content="Select com port to begin." HorizontalAlignment="Left" Height="27" Margin="10,50,0,0" VerticalAlignment="Top" Width="144"/>
+        <ComboBox x:Name="serialPortsList" HorizontalAlignment="Left" Height="23" Margin="20,82,0,0" VerticalAlignment="Top" Width="190" SelectionChanged="serialPortsList_SelectionChanged"/>
+        <Button x:Name="comPortConnectButton" Content="Connect" HorizontalAlignment="Left" Height="23" Margin="229,82,0,0" VerticalAlignment="Top" Width="101" Click="connectToSelectedComPort"/>
+        <Button x:Name="comPortCloseButton" Content="Close&#xD;&#xA;" HorizontalAlignment="Left" Height="23" Margin="341,82,0,0" VerticalAlignment="Top" Width="101" Click="closeSelectedComPort"/>
+
+    </Grid>
+</Window>

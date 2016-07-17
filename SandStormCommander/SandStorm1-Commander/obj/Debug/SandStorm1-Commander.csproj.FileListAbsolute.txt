@@ -1,0 +1,14 @@
+c:\users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\bin\Debug\SandStorm1-Commander.exe.config
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\bin\Debug\SandStorm1-Commander.exe
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\bin\Debug\SandStorm1-Commander.pdb
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\SandStorm1-Commander.csprojResolveAssemblyReference.cache
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\MainWindow.g.cs
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\App.g.cs
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\SandStorm1-Commander_MarkupCompile.cache
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\SandStorm1-Commander_MarkupCompile.lref
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\MainWindow.baml
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\SandStorm1-Commander.g.resources
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\SandStorm1_Commander.Properties.Resources.resources
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\SandStorm1-Commander.csproj.GenerateResource.Cache
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\SandStorm1-Commander.exe
+C:\Users\gavargas\documents\visual studio 2015\Projects\SandStorm1-Commander\SandStorm1-Commander\obj\Debug\SandStorm1-Commander.pdb
