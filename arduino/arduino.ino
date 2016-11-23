@@ -2,17 +2,18 @@
 #include <SoftwareSerial.h>
 #include "IntersemaBaro.h"
 #include "TinyGPS++.h" // Include TinyGPS library
+#include <ArduinoJson.h> //Arduino JSON
 
 #define RXPin 4
-#define TXPin 5
+#define TXPin 3
 #define SENSOR_INFO_INTERVAL 20000
 #define BAUDRATE 115200
 #define GPS_BAUDRATE 9600
-#define SENSOR_PACKET_MAX 300
 
-static struct pt, gps, heartbeat, sensors; // each protothread needs one of these
-char sensor_packet[SENSOR_PACKET_MAX];  // What is this used for?
-int counter = 0; // Counter for the threading
+Construct the protothreads
+static struct pt, gps, heartbeat, sensors;
+// Counter for threading
+int counter = 0;
 
 // Declare software serial variables.
 SoftwareSerial gpsSerial(RXPin, TXPin);
