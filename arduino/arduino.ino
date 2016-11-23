@@ -1,89 +1,56 @@
 #include <pt.h>   // include protothread library
 #include <SoftwareSerial.h>
 #include "IntersemaBaro.h"
+#include "TinyGPS++.h" // Include TinyGPS library
 
-#define RXPin 52
-#define TXPin 53
-#define SENSOR_INFO_INTERVAL 3000
+#define RXPin 4
+#define TXPin 5
+#define SENSOR_INFO_INTERVAL 20000
 #define BAUDRATE 115200
 #define GPS_BAUDRATE 9600
-#define NMEA_SENTENCE_MAX 300
+#define SENSOR_PACKET_MAX 300
 
 static struct pt, gps, heartbeat, sensors; // each protothread needs one of these
-char nmea_sentence[NMEA_SENTENCE_MAX];
-int counter = 0;
+char sensor_packet[SENSOR_PACKET_MAX];  // What is this used for?
+int counter = 0; // Counter for the threading
+
 // Declare software serial variables.
 SoftwareSerial gpsSerial(RXPin, TXPin);
-// Altimeter
+// Altimeter initialization
 Intersema::BaroPressure_MS5607B baro(true);
-
+// Set up TinyGPS object
+TinyGPSPlus gps;
 
 void setup() {
+  // Begin serial with Baudrate
   Serial.begin(BAUDRATE);
-  Serial1.begin(BAUDRATE);
-
+  // Begin serial connection to GPS
   gpsSerial.begin(GPS_BAUDRATE);
-  // Barometer system
+  // Barometer system initialize
   baro.init();
-
-  PT_INIT(&gps);  // initialise the three // protothread variables
+  // initialise the three protothread variables
+  PT_INIT(&gps);
   PT_INIT(&heartbeat);
   PT_INIT(&sensors);
 }
 
 PT_THREAD(verifyHeartbeat(struct pt *pt, int interval)) {
-  static char tick[4];
-  static int i = 0;
-  static String message = "";
-  char currentChar;
 
   static unsigned long timestamp = 0;
 
   PT_BEGIN(pt);
 
-  Serial.println("Heart!");
-
   while(1)
   {
-
     PT_WAIT_UNTIL(pt, millis() - timestamp > interval);
-
     timestamp = millis();
-
-   if(Serial.available() > 3)
-   {
-        i = 0;
-   }
-
-   for(int j = 0; j < Serial.available(); j++)
-   {
-      currentChar = Serial.read();
-      Serial.println(currentChar);
-
-      if( i > 3 ) { i = 0; }
-
-      Serial.println(i,DEC);
-      tick[i] = currentChar;
-      i++;
-      tick[i] = '\0';
-      message = tick;
-    }
-
-    if(message.equals("tick"))
-    {
-      Serial.println("tock");
-      message = "";
-      i = 0;
-    }
+    // Send a heartbeat to the base station
   }
-
   PT_END(pt);
 }
 
-/* exactly the same as the protothread1 function */
-static int transmitGPS(struct pt *pt, int interval) {
+static int collectSensorPacket(struct pt *pt, int interval) {
   static unsigned long timestamp = 0;
-  char byteGPS;
 
   PT_BEGIN(pt);
 
@@ -94,16 +61,7 @@ static int transmitGPS(struct pt *pt, int interval) {
       PT_WAIT_UNTIL(pt, millis() - timestamp > interval);
        timestamp = millis();
 
-      if (gpsSerial.available())
-      {
-         byteGPS = gpsSerial.read();
-         handle_byte(byteGPS);
-      }
-
-//      if (Serial.available())
-//        gpsSerial.write(Serial.read());
-
-      //Serial.println("GPS");
+      GPS Data Collection
     }
   }
 
@@ -152,6 +110,10 @@ PT_THREAD(updateSensorInfo(struct pt *pt, int interval)) {
   }
 
   PT_END(pt);
+}
+
+static Array getAltimeterValue {
+
 }
 
 void loop() {
